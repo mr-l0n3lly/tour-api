@@ -3,44 +3,44 @@ exports.getAllUsers = (req, res) => {
 		status: 'success',
 		results: 4,
 		data: {
-			users: tours
-		}
+			users: 'nono',
+		},
 	});
-}
+};
 
 exports.getUser = (req, res) => {
+	const required = 0;
 
 	if (required === undefined) {
 		res.status(404).json({
 			status: 'failure',
 			data: {
-				user: 'Wrong id specified'
-			}
+				user: 'Wrong id specified',
+			},
 		});
 	} else {
 		res.status(200).json({
 			status: 'success',
 			data: {
-				user: 'none'
-			}
+				user: 'none',
+			},
 		});
 	}
-}
+};
 
 exports.createUser = (req, res) => {
-	console.log(req.body);
 	res.status(200).send('Done');
-}
+};
 
-exports.updateUser = (req, res) =>{
+exports.updateUser = (req, res) => {
 	res.status(200).json({
 		status: 'Success',
 		data: {
-			tour:'<Updated tour .../>' 
-		}
+			tour: '<Updated tour .../>',
+		},
 	});
-}
+};
 
 exports.deleteUser = (req, res) => {
 	res.status(204).send('Done');
-}
+};
