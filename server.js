@@ -1,6 +1,9 @@
+const env = require('dotenv');
 const app = require('./app');
 
+env.config({ path: './.env' });
+
 // Start linstening
-app.listen(3000, () => {
-	console.log('Server lisntening on 3000');
+app.listen(process.env.PORT, () => {
+	console.log(`Server lisntening on ${ process.env.PORT }`);
 });
