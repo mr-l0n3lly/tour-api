@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/mr-l0n3lly/tour-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "eslint": "^7.22.0",

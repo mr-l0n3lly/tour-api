@@ -1,4 +1,6 @@
 const express = require('express');
+const authController = require('../controllers/authController');
+
 const {
 	getAllTours,
 	createTour,
@@ -15,7 +17,7 @@ tourRouter.param('id', (req, res, next, val) => {
 	next();
 });
 
-tourRouter.route('/').get(getAllTours).post(createTour);
+tourRouter.route('/').get(authController.protect, getAllTours).post(createTour);
 tourRouter.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
 module.exports = tourRouter;
