@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
+const e = require('express');
 const AppError = require('../utils/AppError');
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
+const { promisify } = require('../utils/utils');
 
 const signToken = (id) =>
 	jwt.sign({ id: id }, process.env.JWT_SECRET, {
@@ -69,7 +71,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 		);
 	}
 	// 2) Validate the token
-	jwt.verify(token, process.env.JWT_SECRET);
+	const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
 	// 3) Check if user still exists
 
